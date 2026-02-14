@@ -1,0 +1,21 @@
+name: Continuous Delivery
+
+permissions:
+  contents: write
+
+on:
+  workflow_run:
+    workflows: ["CD"]
+    types:
+      - completed
+
+jobs:
+  deploy:
+    runs-on: ubuntu-24.04
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    steps:
+      - name: Checkout Infrastructure repository
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+        with:
+          repository: 'Infrastructure'
+
