@@ -25,7 +25,7 @@ jobs:
       - name: Update Helm Chart
         run: |
           TAG="sha-${{ github.event.workflow_run.head_sha }}"
-          sed -i "s|tag: *|tag: $TAG|g" charts/api-gateway/values.yaml
+          sed -i "s|tag: .*|tag: $TAG|g" charts/api-gateway/values.yaml
 
       - name: Commit and Push
         run: |
