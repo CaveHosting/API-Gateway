@@ -18,3 +18,17 @@ jobs:
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
         with:
           repository: 'CaveHosting/Infrastructure'
+
+      - name: Update Helm Chart
+        run: |
+          TAG="sha-${{ github.event.workflow_run.head_sha }}"
+          sed -i "s|tag: *|tag: $TAG|g" charts/api-gateway/values.yaml
+
+      - name: Commit and Push
+        run: |
+          git config user.name "Github Actions"
+          git config user.email "actions@github.com"
+          
+          git add charts/api-gateway/values.yaml
+          git commit -m "[chore] CD: Update image to sha-${{ github.event.workflow_run.head }}"
+          git push -u origin main
