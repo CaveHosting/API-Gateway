@@ -33,5 +33,5 @@ jobs:
           git config user.email "actions@github.com"
           
           git add charts/api-gateway/values.yaml
-          git commit -m "🚀 CD: Update image to sha-${{ github.event.workflow_run.head_sha }}"
+          git commit -m "🚀 (CD) Update image to sha-${{ github.event.workflow_run.head_sha }}"
           git push -u origin dev
