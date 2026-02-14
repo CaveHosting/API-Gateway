@@ -18,6 +18,8 @@ jobs:
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
         with:
           repository: 'CaveHosting/Infrastructure'
+          token: ${{ secrets.PAT }}
+          persist-credentials: true
 
       - name: Update Helm Chart
         run: |
@@ -30,5 +32,5 @@ jobs:
           git config user.email "actions@github.com"
           
           git add charts/api-gateway/values.yaml
-          git commit -m "[chore] CD: Update image to sha-${{ github.event.workflow_run.head }}"
+          git commit -m "[chore] CD: Update image to sha-${{ github.event.workflow_run.head_sha }}"
           git push -u origin main
