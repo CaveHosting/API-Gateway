@@ -21,6 +21,6 @@ jobs:
     uses: CaveHosting/Infrastructure/.github/workflows/cd.yml@main
     with:
       chart: "api-gateway"
-      image: "sha-${{ github.sha }}"
+      tag: "sha-${{ github.sha }}"
     secrets:
       PAT: ${{ secrets.PAT }}
