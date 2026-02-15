@@ -1,0 +1,23 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  ci:
+    uses: CaveHosting/Infrastructure/.github/workflows/ci.yml@main
+    with:
+      image: "api-gateway"
+      dockerhub_username: ${{ vars.DOCKERHUB_USERNAME }}
+    secrets:
+      dockerhub_password: ${{ secrets.DOCKERHUB_PASSWORD }}
+  
+  cd:
+    needs: ci
+    uses: CaveHosting/Infrastructure/.github/workflows/cd.yml@main
+    with:
+      chart: "api-gateway"
+      image: "sha-${{ github.sha }}"
+    secrets:
+      PAT: ${{ secrets.PAT }}
