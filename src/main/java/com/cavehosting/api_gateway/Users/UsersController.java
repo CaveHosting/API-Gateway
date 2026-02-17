@@ -6,9 +6,14 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class UsersController {
 
-  @GetMapping("/register")
-  public String registerUser() {
-    return "User Registerd";
+  private final UsersService usersService;
+
+  public UsersController(UsersService usersService) {
+    this.usersService = usersService;
   }
 
+  @GetMapping("/register")
+  public String registerUser(String username) {
+    return usersService.register(username);
+  }
 }

@@ -1,2 +1,4 @@
 /home/anonymeusb/CaveHosting/API-Gateway/src/main/java/com/cavehosting/api_gateway/ApiGatewayApplication.java
+/home/anonymeusb/CaveHosting/API-Gateway/src/main/java/com/cavehosting/api_gateway/Users/RabbitmqConfig.java
 /home/anonymeusb/CaveHosting/API-Gateway/src/main/java/com/cavehosting/api_gateway/Users/UsersController.java
+/home/anonymeusb/CaveHosting/API-Gateway/src/main/java/com/cavehosting/api_gateway/Users/UsersService.java
