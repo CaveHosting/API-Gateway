@@ -12,12 +12,12 @@ import org.springframework.amqp.core.Queue;
 public class RabbitmqConfig {
   @Bean
   public Queue userQueu() {
-    return new Queue("user.queu", true);
+    return new Queue("users.queu", true);
   }
 
   @Bean
   public DirectExchange userExchange() {
-    return new DirectExchange("user.exchange");
+    return new DirectExchange("users.exchange");
   }
 
   @Bean
