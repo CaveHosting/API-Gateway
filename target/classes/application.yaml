@@ -1,8 +1,8 @@
 spring:
   application:
     name: api-gateway
-  rabbimq:
-    host: ${HOST}
-    port: ${PORT}
-    username: ${RABBIT_USERNAME}
-    password: ${RABBIT_PASSWORD}
+  rabbitmq:
+    host: ${HOST:localhost}
+    port: ${PORT:5672}
+    username: ${RABBIT_USERNAME:guest}
+    password: ${RABBIT_PASSWORD:guest}
